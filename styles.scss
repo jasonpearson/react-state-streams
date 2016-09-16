@@ -40,6 +40,9 @@ ul {
       min-height: 33vh;
       cursor: auto;      
       background-color: $gray-dark;
+      @media (max-width: 600px) {
+        max-height: 200vh;
+      }
       .item-detail-content {
         opacity: 1;
         transform: translateX(0);        
