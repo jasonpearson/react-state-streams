@@ -1,9 +1,138 @@
+$gray-light: rgba(100,100,100, 0.18);
+$gray: rgba(100,100,100, 0.35);
+$gray-dark: rgba(100,100,100, 0.8);
+
+@import './node_modules/bootstrap/scss/bootstrap.scss';
+
+html {
+  font-size: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+ul {
+  list-style: none;
+  li {        
+    position: relative;
+    padding: 1.5rem;   
+    max-height: 4.25rem;
+    min-height: 4.25rem;    
+    cursor: pointer; 
+    border-bottom: 1px solid $gray-light;
+    transition: max-height 0.5s ease-in-out, min-height 0.5s ease-in-out, background-color 0.15s ease-in-out;
+    &:last-of-type > h6 {
+      font-weight: 300;
+    }
+    &:hover,
+    &.active {
+      background-color: $gray;
+      color: white;      
+      h6 {
+        transform: translateX(0);
+      }
+    }
+    &.active {
+      max-height: 85vh;
+      min-height: 33vh;
+      cursor: auto;      
+      background-color: $gray-dark;
+      .item-detail-content {
+        opacity: 1;
+        transform: translateX(0);        
+      }
+      form {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .close-form {
+        opacity: 1;
+      } 
+      .facade {
+        pointer-events: none;
+      }      
+    }
+    h6 {
+      transition: transform 0.4s ease-out;
+      transform: translateX(-8px); 
+      font-size: 1.25rem;
+      font-weight: 900;
+      padding-bottom: 1rem;
+      text-transform: capitalize;
+    }
+    .item-detail-content {
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+    }
+    .item-detail-cards {
+      @media (min-width: 600px) {
+        display: flex;
+        .card {
+          width: 33%;
+          margin: 1rem;     
+        }        
+      }      
+      .card {
+        color: $gray-dark;           
+        &:first-of-type {
+          margin-left: 0;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+        .card-header {          
+          font-weight: 300;
+          font-size: 1rem;
+        }
+      }
+    }
+    .close-form {
+      position: absolute;
+      font-size: 2rem;
+      right: 2rem;
+      top: 0.5rem; 
+      cursor: pointer;   
+      opacity: 0;
+      transition: opacity 0.3s ease-out;  
+    }
+    form {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in;
+      .form-control {
+        color: #666 !important;
+      }
+    }
+    .facade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
 code {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  background: $gray;
+  margin-top: 5rem;
+  padding: 2rem;
   h6 {
+    font-size: 1.25rem;
     margin-bottom: 0;
   }
   p {
     margin-top: 0;
-    font-size: 10px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 }

@@ -6,17 +6,18 @@ export class StockItemsContainer extends React.Component {
   render() {
     return (
       <div>
+        
         <StockItemsList state={this.props.state} />
+
+        {/* DEBUG
         <code>
           <h6>StockItemsState - list:</h6>
           <p>{JSON.stringify(this.props.state.list)}</p>
 
-          <h6>StockItemsState - form:</h6>
-          <p>{JSON.stringify(this.props.state.form)}</p>
-
-          <h6>StockItemsState - activeId:</h6>
-          <p>{JSON.stringify(this.props.state.activeId)}</p>
-        </code>        
+          <h6>StockItemsState - ui:</h6>
+          <p>{JSON.stringify(this.props.state.ui)}</p>
+        </code>
+        */}        
       </div>
     )
   }
